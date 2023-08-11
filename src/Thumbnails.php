@@ -1,6 +1,6 @@
 <?php
 
-namespace sametcoban\laravelthumbnails;
+namespace Sametcoban\Laravelthumbnails;
 
 use Exception;
 
