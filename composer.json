@@ -1,0 +1,18 @@
+{
+    "name": "sametcoban/laravelthumbnails",
+    "description": "thumbnail for image files",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sametcoban\\Laravelthumbnails\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "sametcoban",
+            "email": "samet@ron.digital"
+        }
+    ],
+    "require": {}
+}
