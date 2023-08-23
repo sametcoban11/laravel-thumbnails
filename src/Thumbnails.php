@@ -4,7 +4,8 @@ namespace Sametcoban\Laravelthumbnails;
 
 use Exception;
 
-trait Thumbnails{
+trait Thumbnails
+{
     public function createThumbnail($source, $destination, $targetWidth, $targetHeight)
     {
         // Kaynak dosyanın tipini kontrol edin
@@ -20,6 +21,9 @@ trait Thumbnails{
                 break;
             case IMAGETYPE_GIF:
                 $originalImage = imagecreatefromgif($source);
+                break;
+            case IMAGETYPE_WEBP:
+                $originalImage = imagecreatefromwebp($source);
                 break;
             default:
                 throw new Exception("Geçersiz görüntü formatı");
@@ -42,10 +46,16 @@ trait Thumbnails{
 
         // Kaynak görüntüyü hedef boyutlara uyacak şekilde yeniden boyutlandırın
         imagecopyresampled(
-            $thumbnail, $originalImage,
-            0, 0, 0, 0,
-            $targetWidth, $targetHeight,
-            $originalWidth, $originalHeight
+            $thumbnail,
+            $originalImage,
+            0,
+            0,
+            0,
+            0,
+            $targetWidth,
+            $targetHeight,
+            $originalWidth,
+            $originalHeight
         );
 
         // Thumbnail'ı JPEG olarak kaydedin
@@ -67,5 +77,4 @@ trait Thumbnails{
             'fileSize' => filesize($destination), // Thumbnail dosyasının boyutu
         ];
     }
-
 }
