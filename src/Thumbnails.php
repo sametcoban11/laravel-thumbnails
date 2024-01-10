@@ -59,7 +59,7 @@ trait Thumbnails
             $originalHeight
         );
 
-        // Thumbnail'ı JPEG olarak kaydedin
+        // Thumbnail'ı PNG olarak kaydedin
         imagepng($thumbnail, $destination);
 
         // Görüntü kaynaklarını bellekten temizleyin
