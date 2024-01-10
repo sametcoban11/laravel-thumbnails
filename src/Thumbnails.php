@@ -43,7 +43,8 @@ trait Thumbnails
 
         // Yeni bir true color görüntü kaynağı oluşturun
         $thumbnail = imagecreatetruecolor($targetWidth, $targetHeight);
-
+        imagealphablending($thumbnail, false);
+        imagesavealpha($thumbnail, true);
         // Kaynak görüntüyü hedef boyutlara uyacak şekilde yeniden boyutlandırın
         imagecopyresampled(
             $thumbnail,
@@ -59,7 +60,7 @@ trait Thumbnails
         );
 
         // Thumbnail'ı JPEG olarak kaydedin
-        imagejpeg($thumbnail, $destination);
+        imagepng($thumbnail, $destination);
 
         // Görüntü kaynaklarını bellekten temizleyin
         imagedestroy($originalImage);
